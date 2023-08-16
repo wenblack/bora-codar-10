@@ -16,7 +16,16 @@ const lato = Lato({ subsets: ['latin'] , weight:['400','700']})
 export default function Home() {
   return (
     <main className={`${lato.className}`}>
-      <Temperature/>
+      <Temperature
+        local='São Paulo,SP'
+        actualDegrees={18}
+        minDegrees={16}
+        maxDegrees={22}
+        windAmount={17}
+        humityAmount={31}
+        rainAmount={10}
+      />
+
       <section className="air-quality">
         <h2 className="title">
           <Image src={LeafIcon} alt="icone de folha de árvore" />
