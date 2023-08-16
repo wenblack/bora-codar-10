@@ -1,9 +1,6 @@
 import { Lato } from 'next/font/google'
 
 import Image from 'next/image'
-import LocationIcon from '@/assets/pin.svg'
-import WindIcon from '@/assets/temp-wind.svg'
-import HumidityIcon from '@/assets/temp-humidity.svg'
 import RainIcon from  '@/assets/weather-rain.svg'
 import LeafIcon from '@/assets/leaf.svg'
 import SunTime from '@/assets/sun-time.svg'
@@ -12,53 +9,14 @@ import CloudsIcon from '@/assets/weather-clouds.svg'
 import SunIcon from '@/assets/weather-sun.svg'
 import ThunderIcon from '@/assets/weather-thunder.svg'
 import CloudyIcon from '@/assets/weather-cloudy.svg'
-import Rain from '@/assets/temp-rain.svg'
+import { Temperature } from '@/components/Temperature'
 
 const lato = Lato({ subsets: ['latin'] , weight:['400','700']})
 
 export default function Home() {
   return (
     <main className={`${lato.className}`}>
-      <section className="temperature-now">
-        <div className="location">
-          <Image 
-            src={LocationIcon} 
-            alt="icone de localizacao" 
-          />
-          <strong>Rio do Sul, SC</strong>
-        </div>
-        <div className="temp">
-          <div className="number">
-            18
-            <div className="maxmin">22° <span>16° </span></div>
-          </div>
-          <div className="celsius">°C</div>
-        </div>
-        <div className="statistics">
-          <div className="stats">
-            <Image src={WindIcon} alt="icone de vento" />
-            <div className="info">
-              <p>Vento</p>
-              <h5>17 <span>km/h</span></h5>
-            </div>
-          </div>
-          <div className="stats">
-            <Image src={HumidityIcon} alt="icone de umidade" />
-            <div className="info">
-              <p>Umidade</p>
-              <h5>31 <span>%</span></h5>
-            </div>
-          </div>
-          <div className="stats">
-            <Image src={Rain} alt="icone de chuva" />
-            <div className="info">
-              <p>Chuva</p>
-              <h5>10 <span>%</span></h5>
-            </div>
-          </div>
-        </div>
-      </section>
-
+      <Temperature/>
       <section className="air-quality">
         <h2 className="title">
           <Image src={LeafIcon} alt="icone de folha de árvore" />
