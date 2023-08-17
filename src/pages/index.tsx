@@ -1,15 +1,11 @@
 import { Lato } from 'next/font/google'
 
 import Image from 'next/image'
-import RainIcon from  '@/assets/weather-rain.svg'
 import SunTime from '@/assets/sun-time.svg'
 import SunChart from '@/assets/sun-chart.svg'
-import CloudsIcon from '@/assets/weather-clouds.svg'
-import SunIcon from '@/assets/weather-sun.svg'
-import ThunderIcon from '@/assets/weather-thunder.svg'
-import CloudyIcon from '@/assets/weather-cloudy.svg'
 import { Temperature } from '@/components/Temperature'
 import { AirQuality } from '@/components/AirQuality'
+import { WeekWeather } from '@/components/WeekWeather'
 
 const lato = Lato({ subsets: ['latin'] , weight:['400','700']})
 
@@ -34,6 +30,7 @@ export default function Home() {
         o3={21.2}
         co={2.1}
         />
+
 
       <section className="sun-time">
         <h2 className="text-[1.6rem] text-[#dad8f7] font-bold flex items-center justify-center gap-[0.8rem] mt-[3rem]">
@@ -60,37 +57,8 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="week-weather">
-        <div className="day">
-          <h4 className="title">Amanhã</h4>
-          <Image src={CloudsIcon} alt="" />
-          <p className="maxmin">21° <span>16°</span></p>
-        </div>
-
-        <div className="day">
-          <h4 className="title">Sexta</h4>
-          <Image src={SunIcon} alt="" />
-          <p className="maxmin">28° <span>16°</span></p>
-        </div>
-
-        <div className="day">
-          <h4 className="title">Sábado</h4>
-          <Image src={RainIcon} alt="" />
-          <p className="maxmin">20° <span>16°</span></p>
-        </div>
-
-        <div className="day">
-          <h4 className="title">Domingo</h4>
-          <Image src={ThunderIcon} alt="" />
-          <p className="maxmin">28° <span>26°</span></p>
-        </div>
-
-        <div className="day">
-          <h4 className="title">Segunda</h4>
-          <Image src={CloudyIcon} alt="" />
-          <p className="maxmin">26° <span>20°</span></p>
-        </div>
-      </section>
+      <WeekWeather/>
+     
     </main>
   )
 }
