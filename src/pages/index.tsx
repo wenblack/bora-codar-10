@@ -6,10 +6,26 @@ import SunChart from '@/assets/sun-chart.svg'
 import { Temperature } from '@/components/Temperature'
 import { AirQuality } from '@/components/AirQuality'
 import { WeekWeather } from '@/components/WeekWeather'
+import axios from 'axios'
+import { useEffect } from 'react'
 
 const lato = Lato({ subsets: ['latin'] , weight:['400','700']})
 
+async function getData() {
+  try {
+    const response = await axios.get('/api');
+    const data = response.data.result
+    localStorage.setItem("data",JSON.stringify(data))
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+
 export default function Home() {
+  useEffect(()=>{
+    getData()
+  },[])
   return (
     <main className={`${lato.className} `}>
       <Temperature
