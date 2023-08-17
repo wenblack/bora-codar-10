@@ -15,9 +15,6 @@
   font-family: "Lato", sans-serif;
 }
 
-body {
-  font-size: 1.6rem;
-}
 
 main {
   background: url(../assets/bg.jpeg) no-repeat center/cover;
@@ -27,7 +24,7 @@ main {
   display: grid;
   place-content: center;
 
-  padding: 6.4rem;
+  padding:2rem 6.4rem;
   gap: 2.4rem;
 }
 
@@ -35,14 +32,6 @@ section {
   background: #6d67d0;
   backdrop-filter: blur(1rem);
   border-radius: 1rem;
-}
-
-/* Air Quality */
-.air-quality {
-  font-weight: 700;
-
-  text-align: center;
-  display: grid;
 }
 
 h2.title {
@@ -58,41 +47,6 @@ h2.title {
   margin-top: 1rem;
 }
 
-.air-quality .good {
-  margin-top: 3.2rem;
-
-  font-size: 1.8rem;
-  color: #87ebcd;
-}
-
-.air-quality > .number {
-  margin-top: 0.4rem;
-  font-size: 4rem;
-  color: #e7e6fb;
-}
-
-.air-quality .info {
-  display: flex;
-  align-items: center;
-
-  margin-top: 3.2rem;
-
-  padding: 0 1.6rem 1.6rem;
-}
-
-.air-quality .info .number {
-  flex: 1;
-}
-
-.air-quality .info p {
-  color: #87ebcd;
-  font-size: 1.4rem;
-}
-
-.air-quality .info small {
-  font-size: 1.2rem;
-  color: #e7e6fb;
-}
 
 /* Sun Time */
 

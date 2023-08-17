@@ -40,39 +40,39 @@ export function AirQuality ({co, no2, o3, pm10, pm25, so2}:AirQualityProps){
     })
 
     return(
-        <section className="air-quality">
-        <h2 className="title">
+        <section className=" text-center text-[#dad8f7]  font-bold">
+        <h2 className="text-[1.6rem] flex items-center justify-center gap-[0.8rem] mt-[1rem]">
           <Image src={LeafIcon} alt="icone de folha de árvore" />
           Qualidade do ar
         </h2>
 
-        <p className="good">{quality}</p>
-        <p className="number">{result}</p>
+        <p className="mt-[3.2rem] text-[1.8rem] text-[#87ebcd]">{quality}</p>
+        <p className="mt-[0.4rem] text-[4rem] text-[#e7e6fb]">{result}</p>
 
-        <div className="info">
-          <div className="number">
-            <p>{pm25}</p>
-            <small>PM2.5</small>
+        <div className="flex items-center mt-[3.2rem] px-[1.6rem] pb-[1.6rem] justify-around">
+          <div className="">
+            <p className='text-[#87ebcd] text-[1.4rem]'>{pm25}</p>
+            <small className='text-[1.2rem] text-[#3e7e6fb]'>PM2.5</small>
           </div>
           <div className="number">
-            <p>{pm10}</p>
-            <small>PM10</small>
+            <p className='text-[#87ebcd] text-[1.4rem]'>{pm10}</p>
+            <small className='text-[1.2rem] text-[#3e7e6fb]'>PM10</small>
           </div>
           <div className="number">
-            <p>{so2}</p>
-            <small>SO₂</small>
+            <p className='text-[#87ebcd] text-[1.4rem]'>{so2}</p>
+            <small className='text-[1.2rem] text-[#3e7e6fb]'>SO₂</small>
           </div>
           <div className="number">
-            <p>{no2}</p>
-            <small>NO₂</small>
+            <p className='text-[#87ebcd] text-[1.4rem]'>{no2}</p>
+            <small className='text-[1.2rem] text-[#3e7e6fb]'>NO₂</small>
           </div>
           <div className="number">
-            <p>{o3}</p>
-            <small>O₃</small>
+            <p className='text-[#87ebcd] text-[1.4rem]'>{o3}</p>
+            <small className='text-[1.2rem] text-[#3e7e6fb]'>O₃</small>
           </div>
           <div className="number">
-            <p>{co}</p>
-            <small>CO</small>
+            <p className='text-[#87ebcd] text-[1.4rem]'>{co}</p>
+            <small className='text-[1.2rem] text-[#3e7e6fb]'>CO</small>
           </div>
         </div>
       </section>

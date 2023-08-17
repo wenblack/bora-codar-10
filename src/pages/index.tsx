@@ -15,7 +15,7 @@ const lato = Lato({ subsets: ['latin'] , weight:['400','700']})
 
 export default function Home() {
   return (
-    <main className={`${lato.className}`}>
+    <main className={`${lato.className} `}>
       <Temperature
         local='São Paulo,SP'
         actualDegrees={18}
@@ -33,7 +33,7 @@ export default function Home() {
         no2={1.4}
         o3={21.2}
         co={2.1}
-      />
+        />
 
       <section className="sun-time">
         <h2 className="title">
