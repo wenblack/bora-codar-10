@@ -57,7 +57,7 @@ export default function Home() {
         </div>
       </section>
 
-      <WeekWeather/>
+      <WeekWeather />
      
     </main>
   )
