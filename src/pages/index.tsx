@@ -2,7 +2,6 @@ import { Lato } from 'next/font/google'
 
 import Image from 'next/image'
 import RainIcon from  '@/assets/weather-rain.svg'
-import LeafIcon from '@/assets/leaf.svg'
 import SunTime from '@/assets/sun-time.svg'
 import SunChart from '@/assets/sun-chart.svg'
 import CloudsIcon from '@/assets/weather-clouds.svg'
@@ -10,6 +9,7 @@ import SunIcon from '@/assets/weather-sun.svg'
 import ThunderIcon from '@/assets/weather-thunder.svg'
 import CloudyIcon from '@/assets/weather-cloudy.svg'
 import { Temperature } from '@/components/Temperature'
+import { AirQuality } from '@/components/AirQuality'
 
 const lato = Lato({ subsets: ['latin'] , weight:['400','700']})
 
@@ -26,42 +26,14 @@ export default function Home() {
         rainAmount={10}
       />
 
-      <section className="air-quality">
-        <h2 className="title">
-          <Image src={LeafIcon} alt="icone de folha de árvore" />
-          Qualidade do ar
-        </h2>
-
-        <p className="good">Boa</p>
-        <p className="number">21</p>
-
-        <div className="info">
-          <div className="number">
-            <p>12.9</p>
-            <small>PM2.5</small>
-          </div>
-          <div className="number">
-            <p>12.9</p>
-            <small>PM10</small>
-          </div>
-          <div className="number">
-            <p>2.1</p>
-            <small>SO₂</small>
-          </div>
-          <div className="number">
-            <p>1.4</p>
-            <small>NO₂</small>
-          </div>
-          <div className="number">
-            <p>21.2</p>
-            <small>O₃</small>
-          </div>
-          <div className="number">
-            <p>0.7</p>
-            <small>CO</small>
-          </div>
-        </div>
-      </section>
+      <AirQuality 
+        pm25={12.9}
+        pm10={12.9}
+        so2={2.1}
+        no2={1.4}
+        o3={21.2}
+        co={2.1}
+      />
 
       <section className="sun-time">
         <h2 className="title">
