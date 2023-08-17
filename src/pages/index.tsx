@@ -36,7 +36,7 @@ export default function Home() {
         />
 
       <section className="sun-time">
-        <h2 className="title">
+        <h2 className="text-[1.6rem] text-[#dad8f7] font-bold flex items-center justify-center gap-[0.8rem] mt-[3rem]">
           <Image
             src={SunTime}
             alt="icone de um sol com um relógio dentro"

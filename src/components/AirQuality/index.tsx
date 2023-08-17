@@ -41,12 +41,12 @@ export function AirQuality ({co, no2, o3, pm10, pm25, so2}:AirQualityProps){
 
     return(
         <section className=" text-center text-[#dad8f7]  font-bold">
-        <h2 className="text-[1.6rem] flex items-center justify-center gap-[0.8rem] mt-[1rem]">
+        <h2 className="text-[1.6rem] flex items-center justify-center gap-[0.8rem] mt-[3rem]">
           <Image src={LeafIcon} alt="icone de folha de árvore" />
           Qualidade do ar
         </h2>
 
-        <p className="mt-[3.2rem] text-[1.8rem] text-[#87ebcd]">{quality}</p>
+        <p className="mt-[2rem] text-[1.8rem] text-[#87ebcd]">{quality}</p>
         <p className="mt-[0.4rem] text-[4rem] text-[#e7e6fb]">{result}</p>
 
         <div className="flex items-center mt-[3.2rem] px-[1.6rem] pb-[1.6rem] justify-around">

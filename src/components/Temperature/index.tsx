@@ -15,7 +15,7 @@ interface TemperatureProps{
 
 export function Temperature ({local,actualDegrees,maxDegrees,minDegrees,windAmount, rainAmount,humityAmount}:TemperatureProps){
     return(
-        <section className={"grid grid-cols-1 sm:min-h-[40px] before:content-[''] before:w-[17.6rem]  before:absolute before:top-[-5.6rem] before:left-[-5.6rem] before:h-[17.6rem] before:bg-[url(../assets/clouds.svg)]  h-max bg-[url(../assets/bg-temp-now.jpeg)] auto-cols-max"}>
+        <section className={"grid grid-cols-1 sm:min-h-[40px] before:content-[''] before:w-[17.6rem]  before:absolute before:top-[-5.6rem]  before:left-[-1.6rem] sm:before:left-[-5.6rem] before:h-[17.6rem] before:bg-[url(../assets/clouds.svg)]  h-max bg-[url(../assets/bg-temp-now.jpeg)] auto-cols-max"}>
         <div className={"flex  w-full pt-[3.2rem] px-[3.2rem] justify-end items-center gap-[0.4rem]"}>
           <Image 
             src={LocationIcon} 

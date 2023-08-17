@@ -11,7 +11,7 @@
 }
 
 :root {
-  font-size: 62.5%;
+  font-size: 60.5%;
   font-family: "Lato", sans-serif;
 }
 
@@ -34,22 +34,7 @@ section {
   border-radius: 1rem;
 }
 
-h2.title {
-  font-size: 1.6rem;
-  color: #dad8f7;
-  font-weight: 700;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.8rem;
-
-  margin-top: 1rem;
-}
-
-
 /* Sun Time */
-
 .sun-chart-wrapper {
   margin-top: 4rem;
   height: 11rem;
@@ -76,7 +61,7 @@ h2.title {
   left: 50%;
   margin: -0.6rem;
 
-  transform: rotate(calc(1deg * (((100 - var(--pos-x)) / -100) * 180)))
+  transform: rotate(calc(1deg * (((100 - 75) / -100) * 180)))
     translate(10.6rem);
 }
 
