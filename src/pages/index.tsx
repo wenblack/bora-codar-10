@@ -4,28 +4,43 @@ import Image from 'next/image'
 import SunTime from '@/assets/sun-time.svg'
 import SunChart from '@/assets/sun-chart.svg'
 import { Temperature } from '@/components/Temperature'
-import { AirQuality } from '@/components/AirQuality'
+import { AirQuality, AirQualityProps } from '@/components/AirQuality'
 import { WeekWeather } from '@/components/WeekWeather'
 import axios from 'axios'
-import { useEffect } from 'react'
+import {useEffect, useState } from 'react'
 
 const lato = Lato({ subsets: ['latin'] , weight:['400','700']})
 
-async function getData() {
-  try {
-    const response = await axios.get('/api');
-    const data = response.data.result
-    localStorage.setItem("data",JSON.stringify(data))
-  } catch (error) {
-    console.error(error);
-  }
-}
 
 
 export default function Home() {
+  const [weather, setWeather] = useState<AirQualityProps>({
+    pm2_5: 0, 
+    pm10 : 0, 
+    no2: 0, 
+    so2: 0, 
+    o3: 0, 
+    co: 0
+  }
+    )
+
   useEffect(()=>{
     getData()
   },[])
+
+  async function getData() {
+    try {
+      const response = await axios.get('/api');
+      const data = response.data.result
+      setWeather(data.current.air_quality)
+      localStorage.setItem("data",JSON.stringify(data))
+    } catch (error) {
+      console.error(error);
+    }
+  }
+  
+
+
   return (
     <main className={`${lato.className} `}>
       <Temperature
@@ -39,12 +54,12 @@ export default function Home() {
       />
 
       <AirQuality 
-        pm25={12.9}
-        pm10={12.9}
-        so2={2.1}
-        no2={1.4}
-        o3={21.2}
-        co={2.1}
+        pm2_5={weather.pm2_5}
+        pm10={weather.pm10}
+        so2={weather.so2}
+        no2={weather.no2}
+        o3={weather.o3}
+        co={weather.co}
         />
 
 

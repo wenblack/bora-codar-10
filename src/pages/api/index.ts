@@ -1,7 +1,7 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from 'next'
 
-const data = {
+export const data = {
     "location": {
       "name": "Brasilia",
       "region": "Distrito Federal",

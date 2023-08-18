@@ -1,18 +1,17 @@
 import LeafIcon from '@/assets/leaf.svg'
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
-
-
-interface AirQualityProps {
-    pm25 : number
-    pm10 : number
-    no2: number
-    so2: number
-    o3: number
+import { data } from '@/pages/api'
+export interface AirQualityProps {
+    pm2_5: number 
+    pm10 : number 
+    no2: number 
+    so2: number 
+    o3: number 
     co: number
 }
 
-export function AirQuality ({co, no2, o3, pm10, pm25, so2}:AirQualityProps){
+export function AirQuality ({co, no2, o3, pm10, pm2_5, so2}:AirQualityProps){
     const[quality, setQuality] = useState("")
     const [result, setResult] = useState(0)
     
@@ -51,7 +50,7 @@ export function AirQuality ({co, no2, o3, pm10, pm25, so2}:AirQualityProps){
 
         <div className="flex items-center mt-[3.2rem] px-[1.6rem] pb-[1.6rem] justify-around">
           <div className="">
-            <p className='text-[#87ebcd] text-[1.4rem]'>{pm25}</p>
+            <p className='text-[#87ebcd] text-[1.4rem]'>{pm2_5}</p>
             <small className='text-[1.2rem] text-[#3e7e6fb]'>PM2.5</small>
           </div>
           <div className="number">
