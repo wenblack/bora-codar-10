@@ -1,7 +1,7 @@
 import LeafIcon from '@/assets/leaf.svg'
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
-import { data } from '@/pages/api'
+
 export interface AirQualityProps {
     pm2_5: number 
     pm10 : number 

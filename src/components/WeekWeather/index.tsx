@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 
 
 type Test = {
-    date?:number
+    date:number
     max:number,
     min:number,
     code: number
@@ -11,7 +11,12 @@ type Test = {
 
 
 export function WeekWeather() {
-    const [weekDays, setWeekDays] = useState<Test[]>([])
+        const [weekDays, setWeekDays] = useState<Test[]>([{
+            date:0,
+            max:0,
+            min:0,
+            code:0
+        }])
     const[date, setDate] = useState(0)
     const [month, setMonth] = useState('')
     const [dataSaved, setDataSaved] = useState(false)
@@ -22,7 +27,7 @@ export function WeekWeather() {
         let mont = d.getMonth()
         setMonth("/" + String(mont + 1).padStart(2, "0"))
         setDate(Number(String(day).padStart(2, "0")))
-        let data = JSON.parse(localStorage.getItem('data'))
+        let data = JSON.parse(localStorage.getItem('data') || "")
         await setWeekDays([
             {
                 date: date+1,
@@ -66,12 +71,13 @@ export function WeekWeather() {
     return (
         <section id='week-weather' className="flex  p-[4rem] font-bold justify-around gap-[1.2rem]">
             {
-                weekDays.map((daysWeek) =>
+                weekDays.map((daysWeek, index) =>
                     <WeekDay
                         code={daysWeek.code}
                         day={`${daysWeek.date}${month}`}
                         max={daysWeek.max}
                         min={daysWeek.min}
+                        key={index}
                     />
                 )
             }

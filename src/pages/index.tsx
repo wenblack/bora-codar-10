@@ -1,13 +1,11 @@
 import { Lato } from 'next/font/google'
 
-import Image from 'next/image'
-import SunTime from '@/assets/sun-time.svg'
-import SunChart from '@/assets/sun-chart.svg'
 import { Temperature, TemperatureProps } from '@/components/Temperature'
 import { AirQuality, AirQualityProps } from '@/components/AirQuality'
 import { WeekWeather } from '@/components/WeekWeather'
 import axios from 'axios'
 import {useEffect, useState } from 'react'
+import { SunTIme,SuntimeProps } from '@/components/SunTIme'
 
 const lato = Lato({ subsets: ['latin'] , weight:['400','700']})
 
@@ -32,7 +30,15 @@ export default function Home() {
     humityAmount:0,
     rainAmount:0
   }
+  )
+  const [sunTime, setSunTime] = useState<SuntimeProps>({
+    sunrise:"",
+    sunset:""
+  }
     )
+
+   
+
 
   useEffect(()=>{
     getData()
@@ -48,10 +54,15 @@ export default function Home() {
       const windAmount = data.forecast.forecastday[0].day.avgvis_km
       const humityAmount = data.forecast.forecastday[0].day.avghumidity
       const rainAmount = data.forecast.forecastday[0].day.daily_chance_of_rain
-      
+      const sunrise = data. forecast.forecastday[0].astro.sunrise
+      const sunset = data. forecast.forecastday[0].astro.sunset
+      const local = data.location.name
+      const code = data.current.condition.code
+
       setAirQuality(data.current.air_quality)
       setTemparature({
-        local:"São Paulo",
+        code,
+        local,
         actualDegrees,
         maxDegrees,
         minDegrees,
@@ -59,8 +70,9 @@ export default function Home() {
         humityAmount,
         rainAmount
       })
+      setSunTime({sunrise, sunset})
       localStorage.setItem("data",JSON.stringify(data))
-      console.log(temparature)
+      console.log(data)
     } catch (error) {
       console.error(error);
     }
@@ -72,6 +84,7 @@ export default function Home() {
     <main className={`${lato.className} `}>
       <Temperature
         local={temparature.local}
+        code={temparature.code}
         actualDegrees={temparature.actualDegrees}
         minDegrees={temparature.minDegrees}
         maxDegrees={temparature.maxDegrees}
@@ -89,31 +102,10 @@ export default function Home() {
         co={airQuality.co}
         />
 
-
-      <section className="sun-time">
-        <h2 className="text-[1.6rem] text-[#dad8f7] font-bold flex items-center justify-center gap-[0.8rem] mt-[3rem]">
-          <Image
-            src={SunTime}
-            alt="icone de um sol com um relógio dentro"
-          />
-          Horário do sol
-        </h2>
-        <div className="sun-chart-wrapper">
-          <div className="sun-chart">
-            <div className="chart">
-              <Image
-                src={SunChart}
-                alt="imagem de um gráfico semi circulo com traços"
-              />
-            </div>
-            <time className="now">17:48</time>
-          </div>
-        </div>
-        <div className="time">
-          <time className="sunrise">06:00</time>
-          <time className="sunset">18:52</time>
-        </div>
-      </section>
+      <SunTIme  
+        sunrise={sunTime.sunrise}
+        sunset={sunTime.sunset}
+      />
 
       <WeekWeather />
      
