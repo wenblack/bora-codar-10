@@ -2,7 +2,7 @@ import Image from 'next/image'
 import LocationIcon from '@/assets/pin.svg'
 import { StatusBox } from '../StatsBox'
 
-interface TemperatureProps{
+export interface TemperatureProps{
     local:string
     actualDegrees:number
     maxDegrees:number
