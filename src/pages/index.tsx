@@ -7,6 +7,7 @@ import axios from 'axios'
 import {useEffect, useState } from 'react'
 import { SunTIme,SuntimeProps } from '@/components/SunTIme'
 
+
 const lato = Lato({ subsets: ['latin'] , weight:['400','700']})
 
 
@@ -36,7 +37,7 @@ export default function Home() {
     sunset:""
   }
     )
-
+  let apiKey = process.env.NEXT_PUBLIC_API_KEY
    
 
 
@@ -46,8 +47,9 @@ export default function Home() {
 
   async function getData() {
     try {
-      const response = await axios.get('/api');
-      const data = response.data.result
+      const response = await axios.get(`https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=177.126.97.133&days=5&aqi=yes&alerts=no`);
+      console.log(apiKey)
+      const data = response.data
       const actualDegrees = data.current.temp_c
       const maxDegrees = data.forecast.forecastday[0].day.maxtemp_c
       const minDegrees = data.forecast.forecastday[0].day.mintemp_c
@@ -72,7 +74,6 @@ export default function Home() {
       })
       setSunTime({sunrise, sunset})
       localStorage.setItem("data",JSON.stringify(data))
-      console.log(data)
     } catch (error) {
       console.error(error);
     }
