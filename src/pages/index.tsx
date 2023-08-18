@@ -1,16 +1,13 @@
 import { Lato } from 'next/font/google'
-
+import axios from 'axios'
 import { Temperature, TemperatureProps } from '@/components/Temperature'
 import { AirQuality, AirQualityProps } from '@/components/AirQuality'
 import { WeekWeather } from '@/components/WeekWeather'
-import axios from 'axios'
 import {useEffect, useState } from 'react'
 import { SunTIme,SuntimeProps } from '@/components/SunTIme'
 
 
 const lato = Lato({ subsets: ['latin'] , weight:['400','700']})
-
-
 
 export default function Home() {
   const [airQuality, setAirQuality] = useState<AirQualityProps>({
@@ -47,13 +44,12 @@ export default function Home() {
 
   async function getData() {
     try {
-      const response = await axios.get(`https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=177.126.97.133&days=5&aqi=yes&alerts=no`);
-      console.log(apiKey)
+      const response = await axios.get('https://api.weatherapi.com/v1/forecast.json?key=8dd510308cb24b86a6f185243231808&q=Embu&days=5&aqi=yes&alerts=no');
       const data = response.data
       const actualDegrees = data.current.temp_c
       const maxDegrees = data.forecast.forecastday[0].day.maxtemp_c
       const minDegrees = data.forecast.forecastday[0].day.mintemp_c
-      const windAmount = data.forecast.forecastday[0].day.avgvis_km
+      const windAmount = data.current.wind_kph
       const humityAmount = data.forecast.forecastday[0].day.avghumidity
       const rainAmount = data.forecast.forecastday[0].day.daily_chance_of_rain
       const sunrise = data. forecast.forecastday[0].astro.sunrise
@@ -61,6 +57,7 @@ export default function Home() {
       const local = data.location.name
       const code = data.current.condition.code
 
+      
       setAirQuality(data.current.air_quality)
       setTemparature({
         code,
