@@ -30,31 +30,31 @@ export function WeekWeather() {
         let data = JSON.parse(localStorage.getItem('data') || "")
         await setWeekDays([
             {
-                date: date+1,
+                date: date,
                 code:data.current.condition.code,
                 max:Math.floor(data.forecast.forecastday[0].day.maxtemp_c),
                 min:Math.floor(data.forecast.forecastday[0].day.mintemp_c)
             },
             {
-                date: date+2,
+                date: date+1,
                 code:data.forecast.forecastday[1].day.condition.code,
                 max:Math.floor(data.forecast.forecastday[1].day.maxtemp_c),
                 min:Math.floor(data.forecast.forecastday[1].day.mintemp_c)
             },
             {
-                date: date+3,
+                date: date+2,
                 code:data.forecast.forecastday[1].day.condition.code,
                 max:Math.floor(data.forecast.forecastday[2].day.maxtemp_c),
                 min:Math.floor(data.forecast.forecastday[2].day.mintemp_c)
             },
             {
-                date: date+4,
+                date: date+3,
                 code:data.forecast.forecastday[1].day.condition.code,
                 max:Math.floor(data.forecast.forecastday[3].day.maxtemp_c),
                 min:Math.floor(data.forecast.forecastday[3].day.mintemp_c)
             },
             {
-                date: date+5,
+                date: date+4,
                 code:data.forecast.forecastday[1].day.condition.code,
                 max:Math.floor(data.forecast.forecastday[4].day.maxtemp_c),
                 min:Math.floor(data.forecast.forecastday[4].day.mintemp_c)
